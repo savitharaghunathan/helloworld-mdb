@@ -15,7 +15,7 @@ To Run this app in jboss-eap:
 * copy the `.war` from target to `/opt/jboss-eap/deployments`
 * Access the app - `http://ec2-x-x-x-x.compute-1.amazonaws.com:8080/helloworld-mdb/HelloWorldMDBServletClient`
 * Watch the logs to see messages like the following,
-  ```
+```
 2023-11-15 18:34:59,044 INFO  [class org.jboss.as.quickstarts.mdb.HelloWorldQueueMDB] (Thread-11 (ActiveMQ-client-global-threads)) Received Message from queue: This is message 1
 2023-11-15 18:34:59,050 INFO  [class org.jboss.as.quickstarts.mdb.HelloWorldQueueMDB] (Thread-12 (ActiveMQ-client-global-threads)) Received Message from queue: This is message 2
 2023-11-15 18:34:59,163 INFO  [class org.jboss.as.quickstarts.mdb.HelloWorldQueueMDB] (Thread-10 (ActiveMQ-client-global-threads)) Received Message from queue: This is message 3
@@ -26,7 +26,7 @@ To Run this app in jboss-eap:
 2023-11-15 18:34:59,283 INFO  [class org.jboss.as.quickstarts.mdb.HelloWorldQueueMDB] (Thread-12 (ActiveMQ-client-global-threads)) Received Message from queue: This is message 3
 2023-11-15 18:34:59,290 INFO  [class org.jboss.as.quickstarts.mdb.HelloWorldQueueMDB] (Thread-10 (ActiveMQ-client-global-threads)) Received Message from queue: This is message 4
 2023-11-15 18:34:59,294 INFO  [class org.jboss.as.quickstarts.mdb.HelloWorldQueueMDB] (Thread-12 (ActiveMQ-client-global-threads)) Received Message from queue: This is message 5
-  ```
+```
 * Add messges to the topic using - `http://ec2-x-x-x-x.compute-1.amazonaws.com:8080/helloworld-mdb//HelloWorldMDBServletClient?topic`
 ```
 2023-11-15 18:43:27,540 INFO  [class org.jboss.as.quickstarts.mdb.HelloWorldTopicMDB] (Thread-16 (ActiveMQ-client-global-threads)) Received Message from topic: This is message 1
