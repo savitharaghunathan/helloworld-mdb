@@ -1,6 +1,8 @@
 # Compiled class file
 *.class
-
+.dockerignore
+.mvn/
+.vscode/
 .classpath
 .project
 .settings/
