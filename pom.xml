@@ -64,7 +64,11 @@
     <version>9.1.0</version>
     <scope>provided</scope>
 </dependency>
-
+<dependency>
+    <groupId>jakarta.enterprise</groupId>
+    <artifactId>jakarta.enterprise.cdi-api</artifactId>
+    <scope>provided</scope>
+</dependency>
     <!-- Quarkus SmallRye Reactive Messaging Extension -->
     <dependency>
         <groupId>io.quarkus</groupId>
