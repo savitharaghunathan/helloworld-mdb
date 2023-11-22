@@ -52,11 +52,11 @@
     <artifactId>quarkus-qute</artifactId>
 </dependency>
   <!-- MicroProfile Reactive Messaging API -->
-    <dependency>
+    <!--dependency>
         <groupId>org.eclipse.microprofile.reactive.messaging</groupId>
         <artifactId>microprofile-reactive-messaging-api</artifactId>
         <version>2.0</version>
-    </dependency>
+    </dependency-->
 
 <dependency>
     <groupId>jakarta.platform</groupId>
@@ -74,6 +74,7 @@
         <groupId>io.quarkus</groupId>
         <artifactId>quarkus-smallrye-reactive-messaging</artifactId>
     </dependency>
+	
     <dependency>
     <groupId>io.quarkus</groupId>
     <artifactId>quarkus-smallrye-reactive-messaging-amqp</artifactId>

@@ -17,16 +17,20 @@
 package org.jboss.as.quickstarts.mdb;
 
 import jakarta.enterprise.context.ApplicationScoped;
-
-
+import org.jboss.logging.Logger;
+import io.smallrye.reactive.messaging.annotations.Merge;
 import org.eclipse.microprofile.reactive.messaging.Incoming;
 
 @ApplicationScoped
 public class HelloWorldTopicMDB {
+  
+    private static final Logger LOGGER = Logger.getLogger(HelloWorldTopicMDB.class.toString());
+
 
     @Incoming("HELLOWORLDMDBTopic")
+    @Merge
     public void onMessage(String message) {
-        System.out.println("Received Message from Topic: " + message);
+        LOGGER.info("Received Message from Topic: " + message);
     }
 }
 

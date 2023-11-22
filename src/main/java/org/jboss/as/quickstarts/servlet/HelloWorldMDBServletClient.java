@@ -12,10 +12,12 @@ import io.quarkus.qute.TemplateInstance;
 import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.reactive.messaging.Emitter;
 
+import jakarta.ws.rs.core.Context;
 import java.util.List;
 import java.util.ArrayList;
 import jakarta.ws.rs.core.MultivaluedMap;
 import jakarta.ws.rs.core.UriInfo;
+import jakarta.ws.rs.core.MediaType;
 
 
 @ApplicationScoped
@@ -36,8 +38,8 @@ public class HelloWorldMDBServletClient {
     Template exampleTemplate;
 
     @GET
-    @Produces("text/html")
-    public TemplateInstance doGet(UriInfo uriInfo) {
+    @Produces(MediaType.TEXT_HTML)
+    public TemplateInstance doGet(@Context UriInfo uriInfo) {
         MultivaluedMap<String, String> queryParams = uriInfo.getQueryParameters();
         boolean isUsingTopic = queryParams.containsKey("topic");
 
