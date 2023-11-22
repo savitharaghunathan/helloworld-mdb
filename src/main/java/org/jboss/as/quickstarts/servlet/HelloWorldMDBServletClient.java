@@ -7,8 +7,6 @@ import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
-import io.quarkus.qute.Template;
-import io.quarkus.qute.TemplateInstance;
 import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.reactive.messaging.Emitter;
 
@@ -18,6 +16,8 @@ import java.util.ArrayList;
 import jakarta.ws.rs.core.MultivaluedMap;
 import jakarta.ws.rs.core.UriInfo;
 import jakarta.ws.rs.core.MediaType;
+
+import jakarta.ws.rs.core.Response;
 
 
 @ApplicationScoped
@@ -34,23 +34,33 @@ public class HelloWorldMDBServletClient {
     @Channel("HELLOWORLDMDBTopic")
     Emitter<String> topicEmitter;
 
-    @Inject
-    Template exampleTemplate;
 
     @GET
     @Produces(MediaType.TEXT_HTML)
-    public TemplateInstance doGet(@Context UriInfo uriInfo) {
+    public Response doGet(@Context UriInfo uriInfo) {
         MultivaluedMap<String, String> queryParams = uriInfo.getQueryParameters();
         boolean isUsingTopic = queryParams.containsKey("topic");
 
 
         Emitter<String> emitter = isUsingTopic ? topicEmitter : queueEmitter;
-        List<String> messages = generateMessages(emitter);
+        String destination = isUsingTopic ? "topic" : "queue";
+      StringBuilder response = new StringBuilder();
+        response.append("<h1>Quickstart: Example demonstrates the use of eclipse reactive messaging in Quarkus.</h1>");
+        response.append("<p>Sending messages to <em>").append(destination).append("</em></p>");
+        response.append("<h2>The following messages will be sent to the destination:</h2>");
 
-        return exampleTemplate
-                .data("destination", isUsingTopic ? "Topic" : "Queue")
-                .data("messages", messages)
-                .data("useTopic", isUsingTopic);
+     List<String> messages = generateMessages(emitter);
+        response.append("<ol>");
+        for (String message : messages) {
+            response.append("<li>").append(message).append("</li>");
+        }
+        response.append("</ol>");
+
+
+        response.append("<p><i>Check your console or logs to see the result of messages processing.</i></p>");
+
+        return Response.ok(response.toString()).build();
+    
     }
 
     private List<String> generateMessages(Emitter<String> emitter) {

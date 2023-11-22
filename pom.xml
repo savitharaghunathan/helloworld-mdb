@@ -47,28 +47,17 @@
       <groupId>org.amqphub.quarkus</groupId>
       <artifactId>quarkus-qpid-jms</artifactId>
     </dependency>
-<dependency>
-    <groupId>io.quarkus</groupId>
-    <artifactId>quarkus-qute</artifactId>
-</dependency>
-  <!-- MicroProfile Reactive Messaging API -->
-    <!--dependency>
-        <groupId>org.eclipse.microprofile.reactive.messaging</groupId>
-        <artifactId>microprofile-reactive-messaging-api</artifactId>
-        <version>2.0</version>
-    </dependency-->
-
-<dependency>
-    <groupId>jakarta.platform</groupId>
-    <artifactId>jakarta.jakartaee-api</artifactId>
-    <version>9.1.0</version>
-    <scope>provided</scope>
-</dependency>
-<dependency>
-    <groupId>jakarta.enterprise</groupId>
-    <artifactId>jakarta.enterprise.cdi-api</artifactId>
-    <scope>provided</scope>
-</dependency>
+	<dependency>
+		<groupId>jakarta.platform</groupId>
+		<artifactId>jakarta.jakartaee-api</artifactId>
+		<version>9.1.0</version>
+		<scope>provided</scope>
+	</dependency>
+	<dependency>
+		<groupId>jakarta.enterprise</groupId>
+		<artifactId>jakarta.enterprise.cdi-api</artifactId>
+		<scope>provided</scope>
+	</dependency>
     <!-- Quarkus SmallRye Reactive Messaging Extension -->
     <dependency>
         <groupId>io.quarkus</groupId>
@@ -78,7 +67,7 @@
     <dependency>
     <groupId>io.quarkus</groupId>
     <artifactId>quarkus-smallrye-reactive-messaging-amqp</artifactId>
-</dependency>
+	</dependency>
     <!-- Logging -->
     <dependency>
         <groupId>org.jboss.logging</groupId>
